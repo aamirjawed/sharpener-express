@@ -17,23 +17,44 @@ app.use(router)
 
 // making routes 
 
-router.get("/orders", (req,res) => {
-    res.send("Here is the list of all orders")
-    console.log("All orders list")
+// router.get("/orders", (req,res) => {
+//     res.send("Here is the list of all orders")
+//     console.log("All orders list")
+// })
+
+// router.post("/order", (req, res) => {
+//     res.send("A new order has been created.")
+//     console.log("A new order has been created")
+// })
+
+// router.get("/users", (req, res) =>{
+//     res.send("Here is the list of all users")
+//     console.log("All users list")
+// })
+
+// router.post("/user", (req,res) => {
+//     res.send("A new user has been added.")
+// })
+
+
+router.get("/products", (req, res) => {
+    res.send("Here is the list of all products.")
 })
 
-router.post("/order", (req, res) => {
-    res.send("A new order has been created.")
-    console.log("A new order has been created")
+router.post("/products", (req,res) => {
+    console.log("A new product has been added.")
 })
 
-router.get("/users", (req, res) =>{
-    res.send("Here is the list of all users")
-    console.log("All users list")
+router.get("/categories", (req,res) => {
+    res.send("Here is the list of all categories")
 })
 
-router.post("/user", (req,res) => {
-    res.send("A new user has been added.")
+router.get("/categories", (req, res) => {
+    console.log("A new category has been created.")
+})
+
+app.use((req,res) => {
+    res.status(404).send("<h1>404- Page not found</h1>")
 })
 
 app.listen(3000, () => {
