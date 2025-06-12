@@ -3,9 +3,7 @@ const getProductMiddleware = require("./middleware");
 
 const app  = express()
 
-const router = express.Router();
 
-app.use(router)
 
 // function addUserMiddleware(req, res, next){
 //     req.user ="Guest"
@@ -79,25 +77,33 @@ app.use(router)
 
 // const getProductMiddleware  = require("./middleware")
 
-const middleware = require("./middleware")
+// const middleware = require("./middleware")
 
-router.get("/products", middleware.getProductMiddleware, (req,res) => {
+// router.get("/products", middleware.getProductMiddleware, (req,res) => {
    
-    res.send("Here is the full list of products")
-})
+//     res.send("Here is the full list of products")
+// })
 
-router.post("/products", middleware.postProductMiddleware, (req, res) => {
-    res.send("A new product has been added")
-})
+// router.post("/products", middleware.postProductMiddleware, (req, res) => {
+//     res.send("A new product has been added")
+// })
 
-router.get("/users", middleware.getUserMiddleware, (req, res) => {
-    res.send("Here is the list of all users")
-})
+// router.get("/users", middleware.getUserMiddleware, (req, res) => {
+//     res.send("Here is the list of all users")
+// })
 
-router.post("/users", middleware.postUserMiddleware, (req, res) => {
-    res.send("A new user has been added")
-})
+// router.post("/users", middleware.postUserMiddleware, (req, res) => {
+//     res.send("A new user has been added")
+// })
 
+
+// creating router and filter
+
+const orderRoutes = require("./routes/orderRoutes")
+const userRoutes = require("./routes/userRoutes")
+
+app.use("/orders", orderRoutes)
+app.use("/users", userRoutes)
 
 
 
