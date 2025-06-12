@@ -1,4 +1,5 @@
-const express = require("express")
+const express = require("express");
+const getProductMiddleware = require("./middleware");
 
 const app  = express()
 
@@ -59,21 +60,47 @@ app.use(router)
 
 // dynamic routing
 
-router.get("/", (req, res) => {
-    res.send("Hello from Home page!")
-})
+// router.get("/", (req, res) => {
+//     res.send("Hello from Home page!")
+// })
 
-router.get("/about", (req, res) => {
-    res.send("Hello from About page!")
-})
+// router.get("/about", (req, res) => {
+//     res.send("Hello from About page!")
+// })
 
-router.get("/contact/:username", (req, res)=>{
+// router.get("/contact/:username", (req, res)=>{
     
-    const name = req.params.username
-    const role = req.query.role
-    res.send(`Welcome ${name} your role is ${role}`)
+//     const name = req.params.username
+//     const role = req.query.role
+//     res.send(`Welcome ${name} your role is ${role}`)
+// })
+
+// create server with middleware logging
+
+// const getProductMiddleware  = require("./middleware")
+
+const middleware = require("./middleware")
+
+router.get("/products", middleware.getProductMiddleware, (req,res) => {
+   
+    res.send("Here is the full list of products")
 })
 
-app.listen(3000, () => {
+router.post("/products", middleware.postProductMiddleware, (req, res) => {
+    res.send("A new product has been added")
+})
+
+router.get("/users", middleware.getUserMiddleware, (req, res) => {
+    res.send("Here is the list of all users")
+})
+
+router.post("/users", middleware.postUserMiddleware, (req, res) => {
+    res.send("A new user has been added")
+})
+
+
+
+
+app.listen(4000, () => {
     console.log("Server is up and running on port 3000! Ready to handle requests.")
 })
