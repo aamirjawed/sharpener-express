@@ -14,9 +14,11 @@ const app  = express()
 // app.use("/students", studentsRoutes)
 // app.use("/courses", coursesRoutes)
 
-app.use("/users", usersRoutes)
-app.use("/products", productsRoutes)
-app.use("/cart", cartRoutes)
+// app.use("/users", usersRoutes)
+// app.use("/products", productsRoutes)
+// app.use("/cart", cartRoutes)
+
+app.use("/api/products", productsRoutes)
 
 
 
