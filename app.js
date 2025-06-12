@@ -101,9 +101,11 @@ const app  = express()
 
 const orderRoutes = require("./routes/orderRoutes")
 const userRoutes = require("./routes/userRoutes")
+const bookRoutes = require("./routes/bookRoutes")
 
 app.use("/orders", orderRoutes)
 app.use("/users", userRoutes)
+app.use("/books", bookRoutes)
 
 
 
