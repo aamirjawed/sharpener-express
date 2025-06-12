@@ -4,13 +4,7 @@ const router = express.Router()
 
 
 router.get("/", (req, res) => {
-    res.send("Users list")
+    res.send("Welcome to the Student & Course Portal API!")
 })
-
-
-router.post("/", (req, res) => {
-    res.send("A user is created")
-})
-
 
 module.exports = router;
