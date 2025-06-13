@@ -6,7 +6,18 @@ const path  = require("path")
 
 const getAllProduct = (req,res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'product.html'))
+
+  
     
+}
+
+const postProduct = (req,res) => {
+    const data = req.body;
+   
+    res.json({
+        message:"user-added product",
+        value:data.productName
+    })
 }
 
 // const addProduct = (req, res) => {
@@ -21,4 +32,4 @@ const getAllProduct = (req,res) => {
 //     res.send(response)
 // }
 
-module.exports = {getAllProduct}
+module.exports = {getAllProduct, postProduct}
